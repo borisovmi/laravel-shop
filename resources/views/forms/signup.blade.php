@@ -1,0 +1,37 @@
+@extends('master')
+@section('content')
+
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Signup page</h1>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="POST" action="{{url('user/userSignUp')}}">
+                <!--@csrf-->
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input type="hidden" name="pass" value="add">
+                <div class="form-group">
+                    <label for="first_name">First Name</label>
+                    <input type="text" class="form-control" name="first_name" value="{{old('first_name')}}">
+                </div>
+                <div class="form-group">
+                    <label for="last_name">Last Name</label>
+                    <input type="text" class="form-control" name="last_name" value="{{old('last_name')}}">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" value="{{old('email')}}">
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+
+                <button type="submit" class="btn btn-primary" name="submit">Sign up</button>
+            </form>
+        </div> 
+    </div>
+    @endsection
+</div>
